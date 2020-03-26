@@ -1,20 +1,17 @@
 function memoize(func) {
-  if (typeof func === 'undefined' || typeof func !== 'function') {
-    return null;
-  }
-  const cache = {};
-  function allreadyMemoized(...args) {
-    const key = JSON.stringify(args);
+  const cache = new Map();
+  return function allreadyMemoized(arg) {
+    const key = arg;
+    let result = null;
 
-    if (key in cache) {
-      return cache[key];
+    if (cache.has(key)) {
+      return cache.get(key);
     }
 
-    const result = func.apply(this, args);
-    cache[key] = result;
+    result = func(arg);
+    cache.set(key, result);
     return result;
   }
-  return allreadyMemoized;
 }
 
 module.exports = { memoize };
