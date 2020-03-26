@@ -1,0 +1,36 @@
+{
+  "name": "Memoization Function",
+  "version": "1.0.0",
+  "description": "JavaScript Practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write *.js",
+    "lint": "eslint index.js",
+    "lint:fix": "eslint index.js --fix",
+    "mocha": "mocha --watch --require babel-core/register src"
+  },
+  "devDependencies": {
+    "babel-core": "~6.26.0",
+    "babel-eslint": "~8.0.1",
+    "babel-plugin-transform-function-bind": "~6.22.0",
+    "babel-plugin-transform-runtime": "~6.23.0",
+    "babel-preset-env": "~1.6.0",
+    "chai": "~4.1.2",
+    "eslint": "~4.8.0",
+    "eslint-config-airbnb-base": "~12.0.1",
+    "eslint-plugin-import": "~2.7.0",
+    "mocha": "~7.1.1",
+    "sinon": "~4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imerofeev/task5-memoize.git"
+  },
+  "author": "Ilia Erofeev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imerofeev/task5-memoize/issues"
+  },
+  "homepage": "https://github.com/imerofeev/task5-memoize#readme"
+}
