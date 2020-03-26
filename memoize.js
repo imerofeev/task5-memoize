@@ -1,4 +1,4 @@
-export function memoize(func) {
+function memoize(func) {
   if (typeof func === 'undefined' || typeof func !== 'function') {
     return null;
   }
@@ -16,3 +16,5 @@ export function memoize(func) {
   }
   return allreadyMemoized;
 }
+
+module.exports = { memoize };

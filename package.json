@@ -2,12 +2,12 @@
   "name": "memoization",
   "version": "1.0.0",
   "description": "JavaScript Practice",
-  "main": "index.js",
+  "main": "memoize.js",
   "scripts": {
-    "test": "npm test",
+    "test": "mocha",
     "prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write *.js",
-    "lint": "eslint index.js",
-    "lint:fix": "eslint index.js --fix",
+    "lint": "eslint memoize.js",
+    "lint:fix": "eslint memoize.js --fix",
     "mocha": "mocha --watch --require babel-core/register src"
   },
   "devDependencies": {

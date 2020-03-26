@@ -1,6 +1,7 @@
 const mocha = require('mocha');
 const assert = require("chai").assert;
-const memoize = require("../index").memoize;
+const expect = require("chai").expect;
+const memoize = require("../memoize").memoize;
 
 describe('memoize', () => {
   it('should be a function', () => {
