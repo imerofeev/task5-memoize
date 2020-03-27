@@ -1,10 +1,13 @@
 function memoize(func) {
+  if (typeof (func) !== 'function' || !arguments.length) {
+    return null;
+  } 
   const cache = new Map();
   const cacheWeak = new WeakMap();
   return function allreadyMemoized(arg) {
     const type = typeof arg;
 
-    if (type === 'object' || type === 'function') {
+    if ((type === 'object' || type === 'function') && arg !== null) {
       if (cacheWeak.has(arg)) {
         return cacheWeak.get(arg);
       }
