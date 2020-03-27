@@ -8,12 +8,6 @@ describe('memoize', () => {
     expect(memoize).to.be.a('function');
   });
 
-  // it('should return undefined if no function provided', () => {
-  //   [undefined, null, 123, {}].forEach((arg) => {
-  //     expect(memoize(arg)).to.be.an('null');
-  //   });
-  // });
-
   it('should return some function if function was provided', () => {
     expect(memoize(() => {})).to.be.a('function');
   });
