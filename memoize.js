@@ -2,6 +2,8 @@ function memoize(func, funcVariant = func.length) {
   if (typeof (func) !== 'function' || !arguments.length) {
     return null;
   } 
+  const cache = new Map();
+  const cacheWeak = new WeakMap();
   switch (funcVariant) {
     case 0: {
       return function lazy (func) {
@@ -17,8 +19,6 @@ function memoize(func, funcVariant = func.length) {
       };
     }
     case 1:  {  
-      const cache = new Map();
-      const cacheWeak = new WeakMap();
       return function allreadyMemoized(arg) {
         const type = typeof arg;
 
@@ -49,9 +49,23 @@ function memoize(func, funcVariant = func.length) {
       }
     }
     default: {
-      const allreadyMemoized = memoize(arg1 => memoize((...args) => func(arg1, ...args), funcVariant - 1));
-      return (arg1, ...args) => allreadyMemoized(arg1)(...args);
+      return function allreadyMemoized(...arg) {
+        const hashName = JSON.stringify(arg);
+        let result = null;
+  
+        if (cashe.has(hashName)) {
+          return cashe.get(hashName);
+        }
+  
+        result = func(...arg);
+        cashe.set(hashName, result);
+        return result;
+      }
     }
+    // default: {
+    //   const allreadyMemoized = memoize(arg1 => memoize((...args) => func(arg1, ...args), funcVariant - 1));
+    //   return (arg1, ...args) => allreadyMemoized(arg1)(...args);
+    // }
   }
 }
 
