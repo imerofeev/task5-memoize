@@ -30,13 +30,14 @@ function memoize(func) {
       for (let i = 0; i < args.length; i += 1) {
         key += args[i] + typeof args[i];
       }
+    
+      if (cache.has(key)) {
+        return cache.get(key);
+      }
+      const result = func.apply(this, args);
+      cache.set(key, result);
+      return result;
     }
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
-    const result = func.apply(this, args);
-    cache.set(key, result);
-    return result;
   };
 }
 
