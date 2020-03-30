@@ -1,4 +1,4 @@
-export const allreadyMemoized = (func, arg) => {
+export const allreadyMemoized = (arg) => {
   const cache = new Map();
   const cacheWeak = new WeakMap();
   const type = typeof arg;

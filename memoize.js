@@ -7,7 +7,7 @@ export const memoize = (func) => {
       return lazy(func);
     }
     case 1: {
-      return arg => allreadyMemoized(arg);
+      return allreadyMemoized(arg);
     }
     case 2: {
       return allreadyMemoized(arg1 => allreadyMemoized(arg2 => func(arg1, arg2)));
