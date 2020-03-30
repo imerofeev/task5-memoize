@@ -1,8 +1,7 @@
 const assert = require("chai").assert;
 const expect = require("chai").expect;
 const sinon = require("sinon");
-const fc = require("fast-check");
-const memoize = require("../memoize").memoize;
+const memoize = require("../index").memoize;
 
 describe("Memoization Function", () => {
   it("should be a function", () => {
@@ -11,18 +10,6 @@ describe("Memoization Function", () => {
 
   it("should return some function if function was provided", () => {
     expect(memoize(() => {})).to.be.a("function");
-  });
-
-  describe("Checking num**2", () => {
-    const testMemo = (num) => num ** 2,
-      testMemoize = memoize(testMemo);
-    it("should return n ** 2", () => {
-      fc.assert(
-        fc.property(fc.integer(), (n) => {
-          assert.equal(testMemoize(n), n ** 2);
-        }),
-      );
-    });
   });
 
   describe("Checking double call", () => {

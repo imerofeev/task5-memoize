@@ -1,5 +1,5 @@
-import { lazy } from '../lazy';
-import { allreadyMemoized } from '../allreadyMemoized';
+import { lazy } from './lazy';
+import { allreadyMemoized } from './allreadyMemoized';
 
 export const memoize = (func) => {
   switch (func.length) {
@@ -7,7 +7,7 @@ export const memoize = (func) => {
       return lazy(func);
     }
     case 1: {
-      return allreadyMemoized(func);
+      return arg => allreadyMemoized(arg);
     }
     case 2: {
       return allreadyMemoized(arg1 => allreadyMemoized(arg2 => func(arg1, arg2)));
