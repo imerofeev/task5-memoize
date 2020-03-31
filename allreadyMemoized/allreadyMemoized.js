@@ -1,9 +1,9 @@
-export const allreadyMemoized = (arg) => {
+export const allreadyMemoized = arg => {
   const cache = new Map();
   const cacheWeak = new WeakMap();
   const type = typeof arg;
 
-  if ((type === 'object' || type === 'function') && arg !== null) {
+  if ((type === "object" || type === "function") && arg !== null) {
     if (cacheWeak.has(arg)) {
       return cacheWeak.get(arg);
     }

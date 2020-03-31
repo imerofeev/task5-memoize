@@ -1,7 +1,8 @@
-const assert = require("chai").assert;
-const expect = require("chai").expect;
+import { describe, it } from "mocha";
+
+const { expect } = require("chai");
 const sinon = require("sinon");
-const memoize = require("../index").memoize;
+const { memoize } = require("../index");
 
 describe("Memoization Function", () => {
   it("should be a function", () => {
@@ -60,11 +61,11 @@ describe("Memoization Function", () => {
     });
     describe("Reference types", () => {
       it("object", () => {
-        const callback = sinon.fake(),
-          memoizeFunc = memoize(callback),
-          obj1 = { id: 1 },
-          str = "testing data",
-          obj2 = { test: "testing data" };
+        const callback = sinon.fake();
+        const memoizeFunc = memoize(callback);
+        const obj1 = { id: 1 };
+        const str = "testing data";
+        const obj2 = { test: "testing data" };
 
         memoizeFunc(obj1, str, obj2);
         memoizeFunc(obj1, str, obj2);
@@ -72,11 +73,11 @@ describe("Memoization Function", () => {
         sinon.assert.calledOnce(callback);
       });
       it("array", () => {
-        const callback = sinon.fake(),
-          memoizeFunc = memoize(callback),
-          arr1 = [1, 2, 3],
-          str = "testing data",
-          arr2 = ["testing data", 34, "123"];
+        const callback = sinon.fake();
+        const memoizeFunc = memoize(callback);
+        const arr1 = [1, 2, 3];
+        const str = "testing data";
+        const arr2 = ["testing data", 34, "123"];
 
         memoizeFunc(arr1, str, arr2);
         memoizeFunc(arr1, str, arr2);
