@@ -4,7 +4,7 @@
   "description": "JavaScript Practice",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha src/test/*.spec.js",
     "mocha": "mocha --watch --require babel-core/register src",
     "eslint": "eslint **/*.js"
   },

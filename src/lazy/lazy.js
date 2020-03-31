@@ -1,4 +1,4 @@
-export const lazy = (func) => {
+export const lazy = func => {
   let created = false;
   let value;
   return () => {
