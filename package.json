@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "mocha": "mocha --watch --require babel-core/register src"
+    "mocha": "mocha --watch --require babel-core/register src",
+    "prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write *.js",
+    "lint": "eslint index.js",
+    "lint:fix": "eslint index.js --fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
